@@ -1,0 +1,4 @@
+export const UPDATE_IS_LOADING = 'UPDATE_IS_LOADING'
+export const ERROR_OCCURED = 'ERROR_OCCURED'
+export const REMOVE_ERROR = 'REMOVE_ERROR'
+

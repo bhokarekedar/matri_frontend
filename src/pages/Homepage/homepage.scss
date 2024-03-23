@@ -1,0 +1,103 @@
+.mainContainerHome {
+  position: relative;
+  background: var(--header);
+  width: 100%;
+  .headerTitle {
+    background-color: var(--primary-color);
+    height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .headerHome {
+    background-color: var(--header);
+    height: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .bannner {
+    padding-left: 20px;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 149, 175, 1) 100%,
+      rgba(0, 0, 0, 1) 100%
+    );
+  }
+
+  .bannerSubHeading {
+    font-size: 1rem;
+    color: var(--subText);
+  }
+  .registrationCard {
+    background: var(--header);
+    padding: 20px;
+    // height: 40vh;
+  }
+  .registrationCardOne {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .registrationCardTwo {
+    background-color: var(--primary-color);
+    padding: 20px;
+  }
+  .subHeading {
+    font-size: 36px;
+    color: var(--secondary-color);
+  }
+  .paddingTopEmptyText {
+    padding-top: 16px;
+  }
+  .taglineHead {
+    background-color: var(--header);
+    font-size: 36px;
+  }
+  .cardsHome {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .resImg {
+    max-inline-size: 100%;
+    block-size: auto;
+    height: 300px;
+    // aspect-ratio: 2/1;
+    object-fit: cover;
+  }
+
+  .cardsHomeWhy {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .circleHome {
+    height: 100px;
+    width: 100px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+  }
+  .iconInsideHome {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+  }
+
+  .footerHome{
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .footerTitle {
+    color: var(--subText);
+  }
+
+  .footerReserved{
+    font-size: 0.75rem;
+    color: var(--subText);
+  }
+  .reserved{
+    padding: 20px;
+    background-color: var(--secondary-color);
+  }
+}

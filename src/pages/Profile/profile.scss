@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+}
+
+.left-section {
+  width: 300px; /* Width of the left section */
+  position: fixed; /* Fix the left section */
+  left: 0; /* Align the left section to the left side of the viewport */
+  top: 0; /* Align the left section to the top of the viewport */
+  bottom: 0; /* Align the left section to the bottom of the viewport *//* Background color for the left section */
+  padding: 20px; /* Padding for the left section */
+}
+
+.right-section {
+  flex: 1; /* Allow the right section to take up the remaining space */
+  margin-left: 340px; /* Adjust margin to accommodate the fixed left section */
+  padding: 20px; /* Padding for the right section */
+  overflow-y: auto;
+  height: 100%;
+
+  .mainMenu {
+    width: 100%;
+    .carouselImages {
+      width: 100%;
+      .profileImg {
+        height: 80vh;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .profileDetailsCard {
+      padding-bottom: 20px;
+    }
+
+    .profileLabels {
+      width: 30%;
+    }
+    .profilevalues {
+      width: 70%;
+    }
+    .profileLabel {
+      color: var(--subText);
+      font-size: 16px;
+    }
+    .profilevalue {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .left-section {
+    display: none; /* Hide the left section for smaller screens */
+  }
+
+  .right-section {
+    margin-left: 0; 
+    overflow-y: hidden;
+    /* Remove the margin for smaller screens */
+  }
+}

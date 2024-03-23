@@ -1,14 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { Provider } from 'react-redux'
+
+import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { loadState, saveState } from './utils/localStorage';
+import configureStore from './store/store';
+import { throttle } from 'redux-saga/effects';
+
+
+ let localData = loadState()
+
+
+
+const store = configureStore(localData);
+// store.subscribe(
+//   throttle(() => {
+//     const {config} = store.getState();
+//     saveState({config})
+//   }, 1000)
+// );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

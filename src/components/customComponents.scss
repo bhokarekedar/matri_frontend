@@ -1,0 +1,90 @@
+.customButton{
+    background-color: var(--primary-color);
+    color: var(--textIconColor);
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.customButtonPrev{
+    // background-color: var(--primary-color);
+    // color: var(--textIconColor);
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.customButtonNext{
+    background-color: var(--primary-color);
+    color: var(--textIconColor);
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+.labelVal{
+    font-size: 16px;
+}
+
+.registrationWrapper {
+    .fullheightDiv {
+      height: 90vh;
+      padding-left: 70px;
+      padding-right: 70px;
+      // padding: 70px 70px 10px 70px;
+    }
+    .formArea {
+      height: 60vh;
+      overflow: scroll;
+      margin-top: 1vh;
+      margin-bottom: 1vh;
+    }
+  
+    .titleBasic {
+      height: 7vh;
+    }
+    .subTitleBasic {
+      height: 8vh;
+    }
+    .regButtons {
+      height: 8vh;
+    
+    }
+    @media (max-width: 575.98px) {
+      /* Extra small (xs) devices (portrait phones, less than 576px) */
+      .fullheightDiv {
+        padding: 10px 10px 10px 10px; /* Set padding to 0 for xs screens */
+      }
+    }
+    .fullheightDivRh {
+      height: 90vh;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 251, 245, 1) 0%,
+        rgba(255, 149, 175, 1) 100%,
+        rgba(0, 0, 0, 1) 100%
+      );
+      overflow: hidden;
+    }
+  
+    .rightImage {
+      width: auto;
+      height: 90vh;
+      max-width: 100%;
+      display: block;
+      object-fit: cover;
+      overflow: hidden;
+    }
+    .marginBottomBasic {
+      margin-bottom: 10px;
+    }
+    .marginBottomBasicNew {
+      margin-bottom: 20px;
+    }
+  
+    @media (max-width: 575.98px) {
+      /* Extra small (xs) devices (portrait phones, less than 576px) */
+      .paddingTopReg {
+        padding-top: 10px;
+      }
+    }
+  }
+  
