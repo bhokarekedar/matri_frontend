@@ -6,6 +6,9 @@ import Signup from "./pages/Signup/Signup";
 import Lottie from "lottie-react";
 import loading from "./images/animations/loading.json";
 import { Profile } from "./pages/Profile/Profile";
+import Login from "./pages/Login/Login";
+import ProtectedRoutes from "./components/ProtectedRoutes";
+
 
 
 const router = createBrowserRouter([
@@ -18,8 +21,18 @@ const router = createBrowserRouter([
     element: <Signup />,
   },
   {
-    path: "/profile",
-    element: <Profile />,
+    path: "/login",
+    element: <Login />,
+  },
+  { 
+    element: <ProtectedRoutes />,
+    children: [
+      {
+          path: "/profile",
+          element: <Profile />,
+      },
+     
+],
   },
 ]);
 

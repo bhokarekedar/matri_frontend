@@ -35,7 +35,11 @@ function ContactDetails() {
             current_location,
             parent_location
         ];
-      
+        let validateFileds = [
+          current_location,
+          parent_location
+        ];
+        
         if (mandatoryFileds.includes(name) && value?.length === 0) {
           let errors = {
             [name]: "Field cannot be empty.",
@@ -44,13 +48,7 @@ function ContactDetails() {
         }
         //field validations
         else {
-          let validateFileds = [
-            mobile_number,
-            home_phone,
-            current_location,
-            parent_location
-          ];
-    
+          
           if (validateFileds.includes(name)) {
             if (value?.length < 3) {
                 let errors = {
@@ -58,14 +56,8 @@ function ContactDetails() {
                 };
                 dispatch({ type: UPDATE_REGISRATION_ERROR, payload: errors });
               } 
-            else if ((name === mobile_number || name === home_phone) && !validateMobileNumber(value)) {
-              let errors = {
-                [name]: "Please enter a valid mobile number.",
-              };
-              dispatch({ type: UPDATE_REGISRATION_ERROR, payload: errors });
-            }
 
-            else if (!(name === mobile_number || name === home_phone) && hasSpecialCharacters(value)) {
+            else if (hasSpecialCharacters(value)) {
               let errors = {
                 [name]: "Please do not enter special characters.",
               };
@@ -78,7 +70,20 @@ function ContactDetails() {
               dispatch({ type: UPDATE_REGISRATION_ERROR, payload: errors });
             }
           }
-         
+          else if ((name === mobile_number || name === home_phone)) {
+            if(!validateMobileNumber(value)){
+              let errors = {
+                [name]: "Please enter a valid mobile number.",
+              };
+              dispatch({ type: UPDATE_REGISRATION_ERROR, payload: errors })
+            }
+            else {
+              let errors = {
+                [e?.target?.name]: "",
+              };
+              dispatch({ type: UPDATE_REGISRATION_ERROR, payload: errors });
+            }
+          }
         }
       };
     

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Col, Row, Flex, Menu, Button, Card } from "antd";
+import { useDispatch, useSelector } from "react-redux";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
@@ -24,8 +25,20 @@ import coupleTwo from "../../images/couple2.jpg";
 import coupleThree from "../../images/couple3.jpg";
 import { first_name, profileLabels } from "../../constants/utilConstants";
 import ProfileCard from "../../components/ProfileCard";
+import { GET_PROFILE_DATA } from "../../saga/profile/profileActionTypes";
 export function Profile() {
   const swiper = useSwiper();
+  const dispatch = useDispatch();
+  const userDetails = useSelector(
+    (state) => state.registration.userDetails
+  );
+
+  useEffect(() => {
+      dispatch({ type: GET_PROFILE_DATA});
+  }, [])
+  
+ 
+ 
   let profileData = {
     first_name:
       "vvvvhvhvh cggcgcgc bhbhbhbhjb fcfcfcffc hvhvhvhvh hvhvhvhvh vhvvhh vvvvhvhvh cggcgcgc bhbhbhbhjb fcfcfcffc hvhvhvhvh hvhvhvhvh vhvvhh",

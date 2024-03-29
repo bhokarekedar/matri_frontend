@@ -6,6 +6,7 @@ function CustomInputField(props) {
     <Input
       id={props.id}
       name={props.name}
+      
       status={props?.status || ""}
       type={props?.type || "text"}
       style={{ width: "100%" }}

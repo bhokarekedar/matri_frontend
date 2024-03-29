@@ -13,6 +13,8 @@
     "cross-env": "^7.0.3",
     "dayjs": "^1.11.10",
     "framer-motion": "^11.0.3",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
     "logger": "^0.0.1",
     "lottie-react": "^2.4.0",
     "react": "^18.2.0",

@@ -53,7 +53,12 @@ function ReligionDetails() {
         [id]: "Field cannot be empty.",
       };
       dispatch({ type: UPDATE_REGISRATION_ERROR, payload: errors });
-    } else {
+    }
+     else {
+      let errors = {
+        [id]: "",
+      };
+      dispatch({ type: UPDATE_REGISRATION_ERROR, payload: errors });
       dispatch({ type: UPDATE_REGISRATION_LOCAL_DATA, payload: data });
 
       if (id === religion) {
@@ -65,6 +70,7 @@ function ReligionDetails() {
         dispatch({ type: UPDATE_CASTE_DETAILS, payload: [] });
         dispatch({ type: UPDATE_REGISRATION_LOCAL_DATA, payload: data });
         dispatch({ type: GET_SUB_RELIGION_DETAILS, payload: value });
+
       }
       if (id === sub_religion) {
         let data = {
@@ -78,11 +84,6 @@ function ReligionDetails() {
           dispatch({ type: GET_CASTE_DETAILS, payload: value });
         }
       }
-
-      let errors = {
-        [id]: "",
-      };
-      dispatch({ type: UPDATE_REGISRATION_ERROR, payload: errors });
     }
   };
 

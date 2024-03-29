@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import { Flex, Col, Row} from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import CustomLabel from "../../../components/CustomLabel";
@@ -33,6 +33,9 @@ import {
 import dayjs from 'dayjs'
 
 function BasicDetails() {
+  const inputRefs = useRef({});
+  
+
   const dispatch = useDispatch();
   const generalInfo = useSelector((state) => state.common.generalInfo);
   const registerationInfo = useSelector(
@@ -84,7 +87,9 @@ function BasicDetails() {
       let errors = {
         [name]: "Field can not be empty.",
       };
+      
       dispatch({ type: UPDATE_REGISRATION_ERROR, payload: errors });
+     
     }
    
     //field validations
@@ -215,9 +220,11 @@ function BasicDetails() {
           <CustomSelectButton
             name={profile_for}
             id={profile_for}
+            
             status={registerationInfoErrors?.profile_for && "error"}
             options={generalInfo?.profileCreatedBy}
             value={registerationInfo.profile_for}
+            
             onChange={handleChangeSelection}
           />
           {registerationInfoErrors?.profile_for && (
@@ -229,6 +236,7 @@ function BasicDetails() {
           <CustomInputField
             placeholder="Enter your email id"
             id={email}
+           
             status={registerationInfoErrors?.email && "error"}
             name={email}
             value={registerationInfo.email}

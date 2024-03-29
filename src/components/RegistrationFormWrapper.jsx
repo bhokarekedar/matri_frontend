@@ -14,6 +14,22 @@ import {
   mother_tongue,
   date_of_birth,
   cpassword,
+  mobile_number,
+  current_location,
+  parent_location,
+  home_phone,
+  other_caste,
+  religion,
+  caste,
+  sub_religion,
+  education_details,
+  school_college_university,
+  profession_details,
+  present_status,
+  profession,
+  annual_income,
+  you_work_with,
+  designation,
 } from "../constants/utilConstants";
 import couple from "../images/animations/couple.json";
 import {
@@ -38,91 +54,11 @@ function RegistrationFormWrapper(props) {
 
   const currentPage = useSelector((state) => state.registration.currentPage);
 
-  let data = {
-    username: "fyfyf4555" || null,
-    profile_for: registerationInfo?.profile_for || null,
-    email: registerationInfo?.email || null,
-    password: registerationInfo?.password || null,
-    cpassword: registerationInfo?.cpassword || null,
-    first_name: registerationInfo?.first_name || null,
-    middle_name: registerationInfo?.middle_name || null,
-    last_name: registerationInfo?.last_name || null,
-    gender: registerationInfo?.gender || null,
-    marital_status: registerationInfo?.marital_status || null,
-    mother_tongue: registerationInfo?.mother_tongue || null,
-    date_of_birth: registerationInfo?.date_of_birth || null,
-    religion: registerationInfo?.religion || null,
-    sub_religion: registerationInfo?.sub_religion || null,
-    caste: registerationInfo?.caste || null,
-    other_caste: registerationInfo?.other_caste || null,
-    contact_email: registerationInfo?.email || null,
-    mobile_number: registerationInfo?.mobile_number || null,
-    home_phone: registerationInfo?.home_phone || null,
-    current_location: registerationInfo?.current_location || null,
-    parent_location: registerationInfo?.parent_location || null,
-    education: registerationInfo?.education || null,
-    education_details: registerationInfo?.education_details || null,
-    school_college_university:
-      registerationInfo?.school_college_university || null,
-    profession: registerationInfo?.profession || null,
-    profession_details: registerationInfo?.profession_details || null,
-    annual_income: registerationInfo?.annual_income || null,
-    present_status: registerationInfo?.present_status || null,
-    you_work_with: registerationInfo?.you_work_with || null,
-    designation: registerationInfo?.designation || null,
-  };
-
-  function validateMandatoryFileds(mandatoryFields, validateFields) {
-   for (let i = 0; i < mandatoryFields.length; i++) {
-    const item = mandatoryFields[i];
-    if (data[item] === null) {
-      
-      let errors = {
-        [item]: "Field cannot be empty.",
-      };
-      dispatch({ type: UPDATE_REGISRATION_ERROR, payload: errors });
-    } 
-   }
-
-  };
-  function validateFileds(validateFields) {
-    let manderrors = 0;
-    for (let j = 0; j < validateFields.length; j++) {
-      const field = validateFields[j];
-      if (field === password && data[field]?.length < 7) {
-        manderrors = manderrors+ 1;
-        let errors = {
-          [field]: "Please enter a value that is more than 6 letters long.",
-        };
-        dispatch({ type: UPDATE_REGISRATION_ERROR, payload: errors });
-       
-      } else if (data[field]?.length < 3) {
-        manderrors = manderrors+ 1;
-        let errors = {
-          [field]: "Please enter a value that is more than 3 letters long.",
-        };
-        dispatch({ type: UPDATE_REGISRATION_ERROR, payload: errors });
-       
-      } else if (field !== password && hasSpecialCharacters(data[field])) {
-        manderrors = manderrors+ 1;
-        let errors = {
-          [field]: "Please do not enter special characters.",
-        };
-        dispatch({ type: UPDATE_REGISRATION_ERROR, payload: errors });
-      } 
-      else{
-        manderrors = manderrors - 1;
-      }
-    }
+  
  
-    return manderrors;
-   
-    
-   };
- 
-
    const handlePrev = () => {
     if (currentPage > 1) {
+
         dispatch({
         type: SET_CURRENT_PAGE,
         payload: currentPage - 1,
@@ -130,6 +66,7 @@ function RegistrationFormWrapper(props) {
     }
    }
   const handleSubmit = () => {
+   
     if (currentPage === 1) {
       let mandatoryFileds = [
         profile_for,
@@ -143,10 +80,81 @@ function RegistrationFormWrapper(props) {
         cpassword,
       ];
       let validateFields = [first_name, last_name, mother_tongue, password];
+
+      let specialValidations = [cpassword, email];
       let toValidate = {
         currentPage : currentPage,
         mandatoryFileds: mandatoryFileds,
-        validateFields: validateFields
+        validateFields: validateFields,
+        specialValidations: specialValidations
+      }
+      dispatch({ type: VALIDATE_FIELDS, payload: toValidate });
+      
+    }
+
+    if (currentPage === 2) {
+      let mandatoryFileds = [
+        mobile_number,
+        current_location,
+        parent_location
+    ];
+    let validateFields = [
+      current_location,
+      parent_location
+    ];
+
+      let specialValidations = [mobile_number, home_phone];
+      let toValidate = {
+        currentPage : currentPage,
+        mandatoryFileds: mandatoryFileds,
+        validateFields: validateFields,
+        specialValidations: specialValidations
+      }
+      dispatch({ type: VALIDATE_FIELDS, payload: toValidate });
+      
+    }
+
+    if (currentPage === 3) {
+      let mandatoryFileds = [
+        religion, sub_religion
+    ];
+    let validateFields = [
+     other_caste
+    ];
+
+      let specialValidations = [];
+      let toValidate = {
+        currentPage : currentPage,
+        mandatoryFileds: mandatoryFileds,
+        validateFields: validateFields,
+        specialValidations: specialValidations
+      }
+      dispatch({ type: VALIDATE_FIELDS, payload: toValidate });
+      
+    }
+
+    if (currentPage === 4) {
+      let mandatoryFileds = [
+        education_details,
+        school_college_university,
+        profession_details,
+        present_status,
+      ];
+      let validateFields = [
+        education_details,
+        school_college_university,
+        profession,
+        profession_details,
+        you_work_with,
+        designation,
+      ];
+
+      let specialValidations = [];
+      let toValidate = {
+        currentPage : currentPage,
+        mandatoryFileds: mandatoryFileds,
+        validateFields: validateFields,
+        specialValidations: specialValidations
       }
       dispatch({ type: VALIDATE_FIELDS, payload: toValidate });
       
@@ -167,7 +175,7 @@ function RegistrationFormWrapper(props) {
   return (
     <div className="registrationWrapper">
       <Row>
-        <Col className="fullheightDiv" xs={{ span: 24 }} sm={{ span: 12 }}>
+        <Col className="fullheightDiv" xs={{ span: 24 }} md={{ span: 12 }}>
           <div className="titleBasic">
             <h1 className="subHeadingOne">Wecome to zzz</h1>
           </div>
@@ -191,7 +199,7 @@ function RegistrationFormWrapper(props) {
             </Button>
           </Flex>
         </Col>
-        <Col className="fullheightDivRh" xs={{ span: 0 }} sm={{ span: 12 }}>
+        <Col className="fullheightDivRh" xs={{ span: 0 }} md={{ span: 12 }}>
           <Lottie animationData={couple} height={"100vh"} />
         </Col>
       </Row>

@@ -5,6 +5,7 @@ export const username = "username";
 
 //profile
 export const profile_for = "profile_for";
+export const loginId = "loginId";
 export const email = "email";
 export const password = "password";
 export const cpassword = "cpassword";

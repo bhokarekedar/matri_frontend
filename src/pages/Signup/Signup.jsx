@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Flex, Card, Col, Row, Button, Divider } from "antd";
+import { Flex} from "antd";
 
 import { useDispatch, useSelector } from "react-redux";
 import BasicDetails from "./Forms/basicDetails";

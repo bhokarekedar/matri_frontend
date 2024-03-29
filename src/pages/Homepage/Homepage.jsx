@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Flex, Card, Col, Row, Button, Divider } from "antd";
 import { IoPeople } from "react-icons/io5";
+
 import { LuMessagesSquare } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
@@ -20,6 +21,7 @@ import { SiGnuprivacyguard } from "react-icons/si";
 import { CiLogin } from "react-icons/ci";
 import CustomSelectButton from "../../components/CustomSelectButton";
 import { useEffect } from "react";
+import { GET_PROFILE_DATA_API } from "../../constants/apiConstants";
 
 const variants = {
   open: { opacity: 1, x: 0 },
@@ -35,6 +37,11 @@ export default function Home() {
   const handleSignup = () => {
     navigate("/signup");
   };
+
+  const handleLogin = () => {
+    navigate("/login");
+  };
+
 
   return (
     <div className="mainContainerHome">
@@ -81,6 +88,7 @@ export default function Home() {
           <Button
             icon={<CiLogin />}
             type="text"
+            onClick={handleLogin}
             // onClick={() => router.push("/login")}
           >
             Login

@@ -11,6 +11,7 @@ function CustomSelectButton(props) {
       <Select
             {...props}
             id={props.id}
+            // ref={props?.ref}
             options={props.options}
             onChange={handleChange}
             placeholder={"Select"}

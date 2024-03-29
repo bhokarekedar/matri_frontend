@@ -1,6 +1,7 @@
 @import './App.scss';
 @import './pages/Homepage/homepage.scss';
 @import './pages/Signup/Signup.scss';
+@import './pages/Login/Login.scss';
 @import './pages/Profile/profile.scss';
 @import './components/customComponents.scss';
 
@@ -17,7 +18,7 @@
     --subText:#808080;
     
   }
-  .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+ .p .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     margin-bottom: 0rem;
 }

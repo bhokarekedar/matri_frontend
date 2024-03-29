@@ -52,6 +52,14 @@ function EducationAndWorkDetails() {
       profession_details,
       present_status,
     ];
+    let validateFileds = [
+      education_details,
+      school_college_university,
+      profession,
+      profession_details,
+      you_work_with,
+      designation,
+    ];
 
     if (mandatoryFileds.includes(name) && value?.length === 0) {
       let errors = {
@@ -61,15 +69,7 @@ function EducationAndWorkDetails() {
     }
     //field validations
     else {
-      let validateFileds = [
-        education_details,
-        school_college_university,
-        profession,
-        profession_details,
-        annual_income,
-        you_work_with,
-        designation,
-      ];
+     
 
       if (validateFileds.includes(name)) {
         if (value?.length < 3) {
@@ -77,7 +77,8 @@ function EducationAndWorkDetails() {
             [name]: "Please enter a value that is more than 3 letters long.",
           };
           dispatch({ type: UPDATE_REGISRATION_ERROR, payload: errors });
-        } else if (hasSpecialCharacters(value)) {
+        }
+         else if (hasSpecialCharacters(value)) {
           let errors = {
             [name]: "Please do not enter special characters.",
           };
@@ -88,6 +89,12 @@ function EducationAndWorkDetails() {
           };
           dispatch({ type: UPDATE_REGISRATION_ERROR, payload: errors });
         }
+      }
+      else {
+        let errors = {
+          [name]: "",
+        };
+        dispatch({ type: UPDATE_REGISRATION_ERROR, payload: errors });
       }
     }
   };
@@ -199,6 +206,7 @@ function EducationAndWorkDetails() {
           value={registerationInfo.present_status}
           onChange={handleChange}
         />
+      
         {registerationInfoErrors?.present_status && (
           <CustomErrorMessage
             message={registerationInfoErrors?.present_status}
